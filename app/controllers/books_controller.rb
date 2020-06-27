@@ -5,7 +5,8 @@ class BooksController < ApplicationController
 
 	def index
 		@book = Book.new
-		# @book = Book.find(params[:id])
+		# db作成後　dateある状態
+		@books = Book.all
 	end
 
 	def create
