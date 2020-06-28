@@ -13,7 +13,6 @@ class BooksController < ApplicationController
 			flash[:notice] = "Book was successfully created."
 			redirect_to book_path(@book.id)
 		else
-			
 			@books = Book.all
 			flash[:notice] = "error"
 			#ここエラーメッセージ
@@ -33,7 +32,7 @@ class BooksController < ApplicationController
 	def update
 		book = Book.find(params[:id])
 		# エラー原因わからない
-		book.update(book.params)
+		book.update(book_params)
 		redirect_to book_path(book.id)
 	end
 
