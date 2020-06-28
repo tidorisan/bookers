@@ -1,4 +1,4 @@
-<%= form_for(@book, url: '/books') do |f| %>
+<%= form_for(@book) do |f| %>
 
   <div class="field">
     <h4>Title</h4>
@@ -9,6 +9,7 @@
     <%= f.text_field :body %>
   </div>
   <div class="actions">
+    <!-- 更新ボタン update -->
     <%= f.submit 'Update Book' %>
   </div>
 
