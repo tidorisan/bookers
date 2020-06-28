@@ -31,9 +31,17 @@ class BooksController < ApplicationController
 
 	def update
 		book = Book.find(params[:id])
-		# エラー原因わからない
-		book.update(book_params)
-		redirect_to book_path(book.id)
+		if book.update(book_params)
+			flash[:notice] = "Book was successfully created."
+			redirect_to book_path(book.id)
+		else
+			#link showの表示　変数
+			@book = Book.find(params[:id])
+			#error message
+			flash[:notice] = "error"
+			#link
+			render "edit"
+		end
 	end
 
 	def destroy

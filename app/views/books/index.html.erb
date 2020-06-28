@@ -29,7 +29,7 @@
 <%= form_for(@book, url: '/books') do |f| %>
 
 
-<!-- 検証 赤い枠はcss 課題対象外-->
+  <!-- 検証 赤い枠はcss 課題-->
 	<% if @book.errors.any? %>
 		<%= @book.errors.count %>errors prohibited this book from being saved:
 		<% @book.errors.full_messages.each do |message| %>
