@@ -1,1 +1,18 @@
-<h1>ddd</h1>
+<%= form_for(@book, url: '/books') do |f| %>
+
+  <div class="field">
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <h4>Body</h4>
+    <%= f.text_field :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Update Book' %>
+  </div>
+
+  <%= link_to 'Show', book_path(@book.id) %>
+  <%= link_to 'Back', books_path %>
+
+<% end %>

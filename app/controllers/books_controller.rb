@@ -10,9 +10,13 @@ class BooksController < ApplicationController
 	def create
 		book = Book.new(book_params)
 		if  book.save
+			flash[:notice] = "Book was successfully created."
 			redirect_to book_path(book.id)
 		else
-			render :index
+			flash[:notice] = "error"
+			#ここエラーメッセージ
+			render "index"
+			# render :index
 		end
 	end
 
@@ -21,11 +25,12 @@ class BooksController < ApplicationController
 	end
 
 	def edit
+		@book = Book.find(params[:id])
 	end
 
 	private
 
 	def book_params
-		params.require(:book).permit(:title, :body)
+		params.require(:book).permit(:title, :body, :opinion)
 	end
 end
